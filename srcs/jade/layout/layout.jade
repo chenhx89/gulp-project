@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+block name
+	- var title="测试"
+head
+	meta(charset="UTF-8")
+	title #{title}
+	block css
+		link(rel="stylesheet", href="css/index.css")
+	block js
+		script(src="libs/jquery/dist/jquery.min.js")
+body
+	block header
+		.title 标题
+
+	block content
+		.con 内容
+
+	block footer
+		.footer 底部

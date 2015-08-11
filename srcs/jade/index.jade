@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-html(lang="en")
-head
-	meta(charset="UTF-8")
-	title #{title}
-	link(rel="stylesheet", href="css/index.css")
-body
+extends layout/layout
+
+block append content
+
 	h1 #{content}
 	if (skills.length)
 		p I have some skills:
@@ -14,3 +11,44 @@ body
 		- })
 	else
 		p I have no skill.
+
+	- var friends = 1
+	case friends
+		when 1: p you have a friend
+		default : p you have #{friends} friends
+
+	.div-box
+		ul
+			- for (var x = 0; x < 3; x++)
+				li item
+
+	.div-box
+		ul
+			- list = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis"]
+			each item in list
+				li= item
+
+	- var user = { description: 'foo bar baz' }
+	- var authorised = true
+	#user
+		if user.description
+			h2 Description
+			p.description= user.description
+		else if authorised
+			h2 Description
+			p.description.
+				User has no description,
+				why not add one...
+		else
+			h1 Description
+			p.description User has no description
+
+	p You're logged in as
+
+	- var title = "On Dogs: Man's Best Friend";
+	- var author = "enlore";
+	- var theGreat = "<span>escape!</span>";
+
+	h1= title
+	p Written with love by #{author}
+	p This will be safe: #{theGreat}
